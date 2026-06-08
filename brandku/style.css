@@ -1,71 +1,26 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: sans-serif;
-}
+const btn_mulai_gratis = document.querySelector("#cta_btn");
+const info_box = document.querySelector("#info_box"); 
 
-body {
-    background-color: #F8F9FB;
-    color: #1f2937;
-    line-height: 1.6;
-}
+let counter = 0;
 
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 24px 64px;
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-}
+btn_mulai_gratis.addEventListener("click", () => {
+  counter++;
 
-header h1 {
-    font-size: 1.5rem;
-    font-weight: 900;
-    color: #FF6B35;
-}
+  if (counter === 1) {
+    console.log("clicked"); 
+    
+    info_box.innerHTML = `
+      <div class="max-w-sm mx-auto bg-white p-4 rounded-lg shadow-sm border border-gray-200 mt-4">
+          <p class="text-sm text-gray-600 mb-2">Silakan masukkan email Anda untuk melanjutkan:</p>
+          <input type="email" placeholder="nama@bisnis.com" class="border p-2 rounded w-full text-sm focus:outline-blue-500" />
+      </div>
+    `;
 
-nav a {
-    margin-left: 32px;
-    text-decoration: none;
-    color: #374151;
-    font-weight: 500;
-    transition: color 0.3s;
-}
+  } else if (counter === 2) {
+    console.log("off"); 
 
-nav a:hover {
-    color: #FF6B35;
-}
-
-main {
-    max-width: 960px;
-    margin: 40px auto;
-    padding: 0 20px;
-}
-
-.hero {
-    text-align: center;
-    padding: 64px 0;
-}
-
-.hero h1 {
-    font-size: 3rem;
-    margin-bottom: 20px;
-}
-
-.feature-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-}
-
-article {
-    background: white;
-    padding: 32px;
-    border-radius: 16px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-    border: 1px solid #f3f4f6;
-}
-
+    info_box.innerHTML = `<span class="text-red-500">Pendaftaran telah ditutup. Terima kasih</span>`;
+    
+    btn_mulai_gratis.classList.add("hidden");
+  }
+});
