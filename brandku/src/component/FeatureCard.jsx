@@ -1,4 +1,4 @@
-export default function FeatureCard({ icon, title, description }) {
+export default function FeatureCard({ icon = "🔹", title = "Fitur", description = "" }) {
   return (
     <article className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 text-left hover:shadow-md transition">
       <div className="text-2xl mb-4">{icon}</div>
